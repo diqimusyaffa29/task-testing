@@ -1,43 +1,18 @@
 <?php
 
-class Light
-{
-    public $idx;
-    public $lights = array("Merah", "Kuning", "Hijau");
+function traffcLight(array $lights){
+    static $counter = 0;
+    $q = $lights;
+    $r = $q[$counter];
+    echo $r ." ";
+    ++$counter;
+    if($counter == 3){
+        return $counter = 0;
+    };
+}
 
-    public function __construct()
-    {
-        $this->idx = 0;
-    }
-
-    public function idxIncrement()
-    {
-        $this->idx++;
-        $r = $arr[idx]; //$arr[0]
-    }
-
-    public function getValue()
-    {
-        return $this->idx;
-    }
-};
-$idx = new Light;
-$idx->idxIncrement();
-
-
-
-
-// function traffictLight(array $arr)
-// {
-//     $idx = 0;
-    
-//     $r = $arr[$idx]; //$arr[0]
-//     echo $r . PHP_EOL;
-//     // echo $arr[$idx];
-//     $idx = $idx++ % count($arr);
-//     $r = $arr[$idx]; //$arr[0]
-// };
-
-// $lights = array("Merah", "Kuning", "Hijau");
-// echo count($lights) . PHP_EOL;
-// traffictLight($lights);
+$lights = ["Merah", "Kuning", "Hijau"];
+traffcLight($lights);
+traffcLight($lights);
+traffcLight($lights);
+traffcLight($lights);
